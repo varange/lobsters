@@ -127,12 +127,12 @@ class User < ApplicationRecord
   end
 
   BANNED_USERNAMES = ["admin", "administrator", "contact", "fraud", "guest",
-    "help", "hostmaster", "lobster", "lobsters", "mailer-daemon", "moderator",
+    "help", "hostmaster", "glogang", "mailer-daemon", "moderator",
     "moderators", "nobody", "postmaster", "root", "security", "support",
     "sysop", "webmaster", "enable", "new", "signup",].freeze
 
   # days old accounts are considered new for
-  NEW_USER_DAYS = 10
+  NEW_USER_DAYS = 70
 
   # minimum karma required to be able to offer title/tag suggestions
   MIN_KARMA_TO_SUGGEST = 10
