@@ -18,7 +18,7 @@
 
   <%= form_with model: @invitation_request, url: create_invitation_by_request_path, local: true do |f| %>
     <p>
-    <%= f.label :name, "Name (not username):" %>
+    <%= f.label :name, "Name or username:" %>
     <%= f.text_field :name, :size => 30 %>
     <br />
 
@@ -26,12 +26,11 @@
     <%= f.email_field :email, :size => 30 %>
     <br />
 
-    <%= f.label :memo, "URL:" %>
+    <%= f.label :memo, "Memo:" %>
     <%= f.text_field :memo, :size => 30 %>
     <br />
     <label></label>
-    <span class="na">URL to verify you (Personal website, GitHub account,
-      etc.)</span>
+    <span class="na">Memo</span>
     </p>
 
     <p>
