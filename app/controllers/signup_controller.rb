@@ -34,9 +34,9 @@ class SignupController < ApplicationController
 
     @new_user = User.new
 
-    if !Rails.application.open_signups?
-      @new_user.email = @invitation.email
-    end
+    # if !Rails.application.open_signups?
+    #   @new_user.email = @invitation.email
+    # end
 
     render :action => "invited"
   end
