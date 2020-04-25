@@ -34,9 +34,9 @@ class SignupController < ApplicationController
 
     @new_user = User.new
 
-    if !Rails.application.open_signups?
-      @new_user.email = @invitation.email
-    end
+    # if !Rails.application.open_signups?
+    #   @new_user.email = @invitation.email
+    # end
 
     render :action => "invited"
   end
@@ -65,11 +65,12 @@ class SignupController < ApplicationController
       flash[:success] = "Welcome to #{Rails.application.name}, " <<
                         "#{@new_user.username}!"
 
-      if Rails.application.allow_new_users_to_invite?
-        return redirect_to signup_invite_path
-      else
-        return redirect_to root_path
-      end
+      # allow_new_users doesn't exist and crashes the application.
+      # if Rails.application.allow_new_users_to_invite?
+      #   return redirect_to signup_invite_path
+      # else
+      return redirect_to root_path
+      # end
     else
       render :action => "invited"
     end

@@ -127,7 +127,7 @@ class User < ApplicationRecord
   end
 
   BANNED_USERNAMES = ["admin", "administrator", "contact", "fraud", "guest",
-    "help", "hostmaster", "lobster", "lobsters", "mailer-daemon", "moderator",
+    "help", "hostmaster", "glogang", "mailer-daemon", "moderator",
     "moderators", "nobody", "postmaster", "root", "security", "support",
     "sysop", "webmaster", "enable", "new", "signup",].freeze
 

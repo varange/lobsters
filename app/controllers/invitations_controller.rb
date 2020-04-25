@@ -42,17 +42,18 @@ class InvitationsController < ApplicationController
 
     i = Invitation.new
     i.user_id = @user.id
-    i.email = params[:email]
-    i.memo = params[:memo]
+    i.email = "justtopass@the.validation"
+    # i.email = params[:email]
+    # i.memo = params[:memo]
 
     begin
       i.save!
-      i.send_email
-      flash[:success] = "Successfully e-mailed invitation to " <<
-                        params[:email].to_s << "."
+      # i.send_email
+      flash[:success] = "Successfully created invitation, share the following link: " <<
+                        Rails.application.root_url << "invitations/" <<
+                        i.code
     rescue
-      flash[:error] = "Could not send invitation, verify the e-mail " <<
-                      "address is valid."
+      flash[:error] = "Could not create invitation, please try again."
     end
 
     if params[:return_home]
