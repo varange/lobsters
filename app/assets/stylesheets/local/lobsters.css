@@ -23,13 +23,10 @@ span.hat_sysop span.crown {
 	position: relative;
 }
 #l_holder:after {
-	content: 'G';
+	content: 'ϴ';
 	color: #fff;
-	position: absolute;
-	top: 0;
-	left: 4px;
-	bottom: 0;
-	right: 0;
+  font-size: 14px;
+  position: absolute; 
 }
 
 @media

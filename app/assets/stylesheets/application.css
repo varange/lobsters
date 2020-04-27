@@ -261,15 +261,17 @@ div#inside {
 }
 
 #l_holder {
-	background-color: #ce0101;
-	background-position: center;
-	float: left;
+  background-color: #bf1e1e; 
+  float: left;
 	display: block;
 	width: 16px;
 	height: 16px;
 	padding: 1px;
 	margin-left: 4px;
 	margin-right: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #headertitle {
@@ -413,7 +415,7 @@ div.voters .downvoter {
 
 div.voters .upvoter:hover,
 .upvoted div.voters .upvoter {
-	border-bottom-color: #ac130d;
+	border-bottom-color: #bf1e1e;
 }
 
 div.voters .upvoter {
