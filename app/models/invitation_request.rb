@@ -7,8 +7,7 @@ class InvitationRequest < ApplicationRecord
             :presence => true,
             :length => { maximum: 255 }
   validates :memo,
-            :format => { :with => /https?:\/\// },
-            :length => { maximum: 255 }
+            :length => { maximum: 512 }
   validates :code, :ip_address, :length => { maximum: 255 }
 
   before_validation :create_code
