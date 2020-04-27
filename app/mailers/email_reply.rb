@@ -1,5 +1,5 @@
 class EmailReply < ActionMailer::Base
-  default :from => "#{Rails.application.name} <nobody@#{Rails.application.domain}>"
+  default :from => "#{Rails.application.name} <no-reply@#{Rails.application.domain}>"
 
   def reply(comment, user)
     @comment = comment

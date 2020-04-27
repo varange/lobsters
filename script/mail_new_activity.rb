@@ -91,7 +91,7 @@ if __FILE__ == $PROGRAM_NAME
       list = "#{Rails.application.shortname}-#{u.mailing_list_token}@#{Rails.application.domain}"
 
       IO.popen(
-        [{}, "/usr/sbin/sendmail", "-i", "-f", "nobody@#{Rails.application.domain}", u.email],
+        [{}, "/usr/sbin/sendmail", "-i", "-f", "no-reply@#{Rails.application.domain}", u.email],
         "w") do |mail|
         mail.puts "From: #{s.user.username} <#{s.user.username}@#{Rails.application.domain}>"
         mail.puts "Reply-To: #{list}"
@@ -174,7 +174,7 @@ if __FILE__ == $PROGRAM_NAME
       domain = Rails.application.domain
       list = "#{Rails.application.shortname}-#{u.mailing_list_token}@#{Rails.application.domain}"
 
-      IO.popen([{}, "/usr/sbin/sendmail", "-i", "-f", "nobody@#{domain}", u.email], "w") do |mail|
+      IO.popen([{}, "/usr/sbin/sendmail", "-i", "-f", "no-reply@#{domain}", u.email], "w") do |mail|
         from = "From: \"#{c.user.username}"
         if c.hat
           from << " (#{c.hat.hat})"
