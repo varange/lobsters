@@ -7,7 +7,7 @@ class BanNotification < ActionMailer::Base
 
     mail(
       :from => "#{@banner.username} <no-reply@#{Rails.application.domain}>",
-      :replyto => "#{@banner.username} <ban-appeal@imperium.press>",
+      :replyto => "#{@banner.username} <ban-appeal@#{Rails.application.domain}>",
       :to => user.email,
       :subject => "[#{Rails.application.name}] You have been banned"
     )
