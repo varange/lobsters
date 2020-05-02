@@ -149,7 +149,7 @@ class StoriesController < ApplicationController
 
         @meta_tags = {
           "twitter:card" => "summary",
-          "twitter:site" => "@lobsters",
+          "twitter:site" => "@imperium_press",
           "twitter:title" => @story.title,
           "twitter:description" => @story.comments_count.to_s + " " +
                                    'comment'.pluralize(@story.comments_count),

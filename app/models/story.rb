@@ -378,7 +378,9 @@ class Story < ApplicationRecord
   def can_have_images?
     # doesn't test self.editor so a user can't trick a mod into editing a
     # story to enable an image
-    self.user.try(:is_moderator?)
+    #
+    # self.user.try(:is_moderator?)
+    true
   end
 
   def can_have_suggestions_from_user?(user)
