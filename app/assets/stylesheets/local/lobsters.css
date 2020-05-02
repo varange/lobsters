@@ -22,12 +22,6 @@ span.hat_sysop span.crown {
 #l_holder {
 	position: relative;
 }
-#l_holder:after {
-	content: 'ϴ';
-	color: #fff;
-  font-size: 14px;
-  position: absolute; 
-}
 
 @media
 only screen and (min-resolution: 2dppx),
