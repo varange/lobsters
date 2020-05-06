@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
-  before_action :require_logged_in_user, :only => [:expire]
+  before_action :require_logged_in_user
 
   ALLOWED_SIZES = [16, 32, 100, 200].freeze
 

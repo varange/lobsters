@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_logged_in_user
   before_action :require_logged_in_moderator,
                 :only => [:enable_invitation, :disable_invitation, :ban, :unban]
   before_action :flag_warning, only: [:show]

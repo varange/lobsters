@@ -3,9 +3,7 @@ class CommentsController < ApplicationController
 
   caches_page :index, :threads, if: CACHE_PAGE
 
-  before_action :require_logged_in_user_or_400,
-                :only => [:create, :preview, :upvote, :downvote, :unvote]
-  before_action :require_logged_in_user, :only => [:upvoted]
+  before_action :require_logged_in_user
   before_action :flag_warning, only: [:threads]
 
   # for rss feeds, load the user's tag filters if a token is passed

@@ -1,4 +1,6 @@
 class ModerationsController < ApplicationController
+  before_action :require_logged_in_user
+
   ENTRIES_PER_PAGE = 50
 
   def index

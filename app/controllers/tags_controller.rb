@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_action :require_logged_in_user
   before_action :require_logged_in_admin, except: [:index]
 
   def index
