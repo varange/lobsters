@@ -23,6 +23,26 @@ span.hat_sysop span.crown {
 	position: relative;
 }
 
+.comment_image {
+  float: right;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.comment_image:hover button {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+}
+
+.comment_image input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
 @media
 only screen and (min-resolution: 2dppx),
 only screen and (-webkit-min-device-pixel-ratio: 2) {

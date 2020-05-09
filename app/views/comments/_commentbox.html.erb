@@ -20,15 +20,34 @@ data-shortid="<%= comment.short_id if comment.persisted? %>">
 
     <p></p>
 
-    <div class="markdown_help_toggler">
+    <div>
       <% if @user %>
-        <div class="markdown_help_label">
-          Markdown formatting available
+        <div class="comment_image">
+          <button id="image_file_button">Attach Image</button>
+          <input id="image_file" type="file">
         </div>
-        <div class="markdown_help_label markdown_help_label_mobile"
-        style="display: none;">
-          [M&darr;]
-        </div>
+
+        <script type="text/javascript">
+          $(document).ready(function() {
+            var button = $("#image_file_button");
+            $("#image_file").on("change", function() {
+              button.text("Uploading...");
+              var file = $("#image_file")[0].files[0];
+              if(!file || !file.type.match(/image.*/)) return;
+              var data = new FormData();
+              data.append("image", file);
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", "https://api.imgur.com/3/image");
+              xhr.setRequestHeader("Authorization", "Client-ID 8cdf90886076167");
+              xhr.onload = function() {
+                var res = JSON.parse(xhr.responseText);
+                if(!res.success) return;
+                $("#comment").val($("#comment").val() + "\n\n" + "![](" + res.data.link + ")");
+              };
+              xhr.send(data);
+            });
+          });
+        </script>
       <% end %>
 
       <%= f.submit "#{comment.new_record?? "Post" : "Update"}",
@@ -44,7 +63,7 @@ data-shortid="<%= comment.short_id if comment.persisted? %>">
 
       <% if @user && @user.wearable_hats.any? %>
         <div style="display: inline-block; margin-left: 1em;">
-        Put on hat:
+        Hat:
         <%= f.select "hat_id",
           options_from_collection_for_select(@user.wearable_hats, "id", "hat",
           comment.hat_id), :include_blank => true %>

@@ -308,7 +308,7 @@ class Comment < ApplicationRecord
   end
 
   def generated_markeddown_comment
-    Markdowner.to_html(self.comment)
+    Markdowner.to_html(self.comment, allow_images: true)
   end
 
   def give_upvote_or_downvote_and_recalculate!(upvote, downvote)
