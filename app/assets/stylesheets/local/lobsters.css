@@ -23,6 +23,10 @@ span.hat_sysop span.crown {
 	position: relative;
 }
 
+.comment_text img {
+  max-width: 100%;
+}
+
 .comment_image {
   float: right;
   position: relative;
