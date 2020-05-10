@@ -42,6 +42,7 @@ data-shortid="<%= comment.short_id if comment.persisted? %>">
               xhr.onload = function() {
                 var res = JSON.parse(xhr.responseText);
                 if(!res.success) return;
+                button.text("Attach Image");
                 $("#comment").val($("#comment").val() + "\n\n" + "![](" + res.data.link + ")");
               };
               xhr.send(data);
