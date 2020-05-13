@@ -47,6 +47,11 @@ span.hat_sysop span.crown {
   opacity: 0;
 }
 
+.story_metadata {
+  color: #c0c0c0;
+  font-size: 11px;
+}
+
 @media
 only screen and (min-resolution: 2dppx),
 only screen and (-webkit-min-device-pixel-ratio: 2) {

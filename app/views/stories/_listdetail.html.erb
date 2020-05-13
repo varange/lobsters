@@ -120,6 +120,10 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
 
         <%= time_ago_in_words_label(story.created_at) %>
 
+        <span class="story_metadata">
+          (<%= Random.rand(1000) %>:<%= @user.id %>)
+        </span>
+
         <% if story.is_editable_by_user?(@user) %>
           |
           <a href="<%= edit_story_path(story.short_id) %>" class="<%=

@@ -82,6 +82,10 @@ class="comment <%= comment.current_vote ? (comment.current_vote[:vote] == 1 ?
           comment.updated_at : comment.created_at), strip_about: true, mark_unread: mark_unread) %>
       <% end %>
 
+      <span class="story_metadata">
+        (<%= Random.rand(1000) %>:<%= @user.id %>)
+      </span>
+
       <% if !comment.previewing %>
         |
         <a href="<%= comment.path %>">link</a>
