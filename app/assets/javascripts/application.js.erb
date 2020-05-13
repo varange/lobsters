@@ -599,5 +599,25 @@ $(document).ready(function() {
       $(".comment-post").click();
     }
   });
+
+  $(document).on("change", "#image_file", function() {
+    var file = $(this)[0].files[0];
+    var button = $(this).prev();
+    var text = $(this).parents("form").find("textarea");
+    button.text("Uploading...");
+    if(!file || !file.type.match(/image.*/)) return;
+    var data = new FormData();
+    data.append("image", file);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://api.imgur.com/3/image");
+    xhr.setRequestHeader("Authorization", "Client-ID 8cdf90886076167");
+    xhr.onload = function() {
+      var res = JSON.parse(xhr.responseText);
+      if(!res.success) return;
+      button.text("Attach Image");
+      text.val(text.val() + "\n\n" + "![](" + res.data.link + ")");
+    };
+    xhr.send(data);
+  });
 });
 

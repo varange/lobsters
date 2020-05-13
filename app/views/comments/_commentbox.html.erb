@@ -26,29 +26,6 @@ data-shortid="<%= comment.short_id if comment.persisted? %>">
           <button id="image_file_button">Attach Image</button>
           <input id="image_file" type="file">
         </div>
-
-        <script type="text/javascript">
-          $(document).ready(function() {
-            var button = $("#image_file_button");
-            $("#image_file").on("change", function() {
-              button.text("Uploading...");
-              var file = $("#image_file")[0].files[0];
-              if(!file || !file.type.match(/image.*/)) return;
-              var data = new FormData();
-              data.append("image", file);
-              var xhr = new XMLHttpRequest();
-              xhr.open("POST", "https://api.imgur.com/3/image");
-              xhr.setRequestHeader("Authorization", "Client-ID 8cdf90886076167");
-              xhr.onload = function() {
-                var res = JSON.parse(xhr.responseText);
-                if(!res.success) return;
-                button.text("Attach Image");
-                $("#comment").val($("#comment").val() + "\n\n" + "![](" + res.data.link + ")");
-              };
-              xhr.send(data);
-            });
-          });
-        </script>
       <% end %>
 
       <%= f.submit "#{comment.new_record?? "Post" : "Update"}",
