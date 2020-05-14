@@ -77,7 +77,6 @@ See the guidelines below for more." %>
     <div class="boxline">
       <label class="required">Image:</label>
       <input id="image_file" type="file">
-      <input id="upload" type="submit" value="Upload">
     </div>
 </div>
 <% unless defined?(suggesting) %>
@@ -105,23 +104,6 @@ See the guidelines below for more." %>
       $("#story_fetch_title").click(function() {
         Lobsters.fetchURLTitle($(this), $("#story_url"), $("#story_title"));
         return false;
-      });
-
-      $("#upload").click(function(e) {
-        e.preventDefault();
-        var file = $("#image_file")[0].files[0];
-        if(!file || !file.type.match(/image.*/)) return;
-        var data = new FormData();
-        data.append("image", file);
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://api.imgur.com/3/image");
-        xhr.setRequestHeader("Authorization", "Client-ID 8cdf90886076167");
-        xhr.onload = function() {
-          var res = JSON.parse(xhr.responseText);
-          if(!res.success) return;
-          $("#story_description").val($("#story_description").val() + "\n\n" + "![](" + res.data.link + ")");
-        };
-        xhr.send(data);
       });
     });
   </script>

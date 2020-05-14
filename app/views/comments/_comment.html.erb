@@ -83,7 +83,8 @@ class="comment <%= comment.current_vote ? (comment.current_vote[:vote] == 1 ?
       <% end %>
 
       <span class="story_metadata">
-        (<%= Random.rand(1000) %>:<%= @user.id %>)
+        <% metadata = Random.rand(1..25) %>
+        <%= metadata %>:<%= Base64.encode64((metadata * @user.id).to_s) %>
       </span>
 
       <% if !comment.previewing %>
