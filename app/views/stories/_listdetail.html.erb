@@ -122,7 +122,7 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
 
         <span class="story_metadata">
           <% metadata = Random.rand(1..25) %>
-          <%= @metadata %>:<%= Base64.encode((@metadata * @user.id).to_s) %>
+          <%= metadata %>:<%= Base64.encode64((metadata * @user.id).to_s) %>
         </span>
 
         <% if story.is_editable_by_user?(@user) %>
