@@ -121,7 +121,7 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
         <%= time_ago_in_words_label(story.created_at) %>
 
         <span class="story_metadata">
-          <% metadata = Random.rand(1..25) $>
+          <% metadata = Random.rand(1..25) %>
           <%= @metadata %>:<%= Base64.encode((@metadata * @user.id).to_s) %>
         </span>
 
